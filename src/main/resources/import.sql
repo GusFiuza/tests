@@ -1,10 +1,8 @@
 create table if not exists students (
        id bigint auto_increment,
-       first_name varchar(255),
+       code bigint,
        last_name varchar(255),
        primary key (id)
     );
 
-INSERT INTO students (first_name, last_name) VALUES ('first', 'person');
-INSERT INTO students (first_name, last_name) VALUES ('second', 'person');
-INSERT INTO students (first_name, last_name) VALUES ('third', 'person');
+INSERT INTO students (code, last_name) VALUES (232412080, 'person');

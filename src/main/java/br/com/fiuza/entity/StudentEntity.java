@@ -16,8 +16,8 @@ public class StudentEntity extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    @Column(name = "first_name")
-    public String first_name;
+    @Column(name = "code")
+    public Long code;
 
     @Column(name = "last_name")
     public String last_name;

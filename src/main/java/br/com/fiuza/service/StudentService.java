@@ -13,19 +13,19 @@ public class StudentService {
     public List<Student> get() {
         List<StudentEntity> listAll = StudentEntity.findAll().list();
         return listAll.stream().map(ie -> {
-            return new Student(ie.id, ie.first_name, ie.last_name);
+            return new Student(ie.id, ie.code, ie.last_name);
         }).collect(Collectors.toList());
     }
 
     public Student getById(Long id) {
         StudentEntity student = StudentEntity.findById(id);
-        return new Student(student.id, student.first_name, student.last_name);
+        return new Student(student.id, student.code, student.last_name);
     }
 
     @Transactional
     public StudentEntity create(Student student) {
         StudentEntity studentEntity = new StudentEntity();
-        studentEntity.first_name = student.getFirst_name();
+        studentEntity.code = student.getCode();
         studentEntity.last_name = student.getLast_name();
         studentEntity.persist();
         return studentEntity;
@@ -34,7 +34,7 @@ public class StudentService {
     @Transactional
     public StudentEntity update(Student Student) {
         StudentEntity entity = StudentEntity.findById(Student.getId());
-        entity.first_name = Student.getFirst_name();
+        entity.code = Student.getCode();
         entity.last_name = Student.getLast_name();
         return entity;
     }
