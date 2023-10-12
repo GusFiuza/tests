@@ -21,4 +21,5 @@ public class StudentEntity extends PanacheEntityBase {
 
     @Column(name = "last_name")
     public String last_name;
+
 }

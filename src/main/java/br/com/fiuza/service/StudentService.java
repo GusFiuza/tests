@@ -17,6 +17,11 @@ public class StudentService {
         }).collect(Collectors.toList());
     }
 
+    public Student getById(Long id) {
+        StudentEntity student = StudentEntity.findById(id);
+        return new Student(student.id, student.first_name, student.last_name);
+    }
+
     @Transactional
     public StudentEntity create(Student student) {
         StudentEntity studentEntity = new StudentEntity();

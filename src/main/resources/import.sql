@@ -1,4 +1,4 @@
-create table students (
+create table if not exists students (
        id bigint auto_increment,
        first_name varchar(255),
        last_name varchar(255),

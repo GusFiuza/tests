@@ -30,6 +30,12 @@ public class StudentController {
         return studentService.get();
     }
 
+    @GET
+    @Path("{id}")
+    public Student getById(@PathParam("id") Long id) {
+        return studentService.getById(id);
+    }
+
     @POST
     public StudentEntity create(Student student) {
         StudentEntity studentEntity = studentService.create(student);
