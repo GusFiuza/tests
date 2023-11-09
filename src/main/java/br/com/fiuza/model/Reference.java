@@ -6,12 +6,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Reference {
-    private Long id;
     private Long code;
     private Float income;
 
-    public Reference(Long id, Long code, Float income) {
-        this.id = id;
+    public Reference(Long code, Float income) {
         this.code = code;
         this.income = income;
     }

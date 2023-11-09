@@ -31,9 +31,9 @@ public class ReferenceController {
     }
 
     @GET
-    @Path("{id}")
-    public Reference getById(@PathParam("id") Long id) {
-        return referenceService.getById(id);
+    @Path("{code}")
+    public Reference getById(@PathParam("code") Long code) {
+        return referenceService.getById(code);
     }
 
     @POST
@@ -49,9 +49,9 @@ public class ReferenceController {
     }
 
     @DELETE
-    @Path("{id}")
-    public void delete(@PathParam("id") Long id) {
-        referenceService.delete(id);
+    @Path("{code}")
+    public void delete(@PathParam("code") Long code) {
+        referenceService.delete(code);
     }
 
 }

@@ -13,13 +13,13 @@ public class ReferenceService {
     public List<Reference> get() {
         List<ReferenceEntity> listAll = ReferenceEntity.findAll().list();
         return listAll.stream().map(ie -> {
-            return new Reference(ie.id, ie.code, ie.income);
+            return new Reference(ie.code, ie.income);
         }).collect(Collectors.toList());
     }
 
-    public Reference getById(Long id) {
-        ReferenceEntity reference = ReferenceEntity.findById(id);
-        return new Reference(reference.id, reference.code, reference.income);
+    public Reference getById(Long code) {
+        ReferenceEntity reference = ReferenceEntity.findById(code);
+        return new Reference(reference.code, reference.income);
     }
 
     @Transactional
@@ -33,15 +33,14 @@ public class ReferenceService {
 
     @Transactional
     public ReferenceEntity update(Reference Reference) {
-        ReferenceEntity entity = ReferenceEntity.findById(Reference.getId());
-        entity.code = Reference.getCode();
+        ReferenceEntity entity = ReferenceEntity.findById(Reference.getCode());
         entity.income = Reference.getIncome();
         return entity;
     }
 
     @Transactional
-    public void delete(Long id) {
-        ReferenceEntity.deleteById(id);
+    public void delete(Long code) {
+        ReferenceEntity.deleteById(code);
     }
 
 }

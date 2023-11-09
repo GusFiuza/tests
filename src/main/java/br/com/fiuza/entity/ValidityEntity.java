@@ -7,13 +7,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "reference")
-public class ReferenceEntity extends PanacheEntityBase {
-
+@Table(name = "validity")
+public class ValidityEntity extends PanacheEntityBase {
+    
     @Id
-    public Long code;
+    public Long validityId;
 
-    @Column(name = "income")
-    public Float income;
+    @Column(name = "validityName")
+    public String validityName;
 
 }
