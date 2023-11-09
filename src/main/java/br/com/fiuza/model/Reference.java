@@ -5,14 +5,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Student {
+public class Reference {
     private Long id;
     private Long code;
-    private String last_name;
+    private Float income;
 
-    public Student(Long id, Long code, String last_name) {
+    public Reference(Long id, Long code, Float income) {
         this.id = id;
         this.code = code;
-        this.last_name = last_name;
+        this.income = income;
     }
 }

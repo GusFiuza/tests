@@ -9,8 +9,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "students")
-public class StudentEntity extends PanacheEntityBase {
+@Table(name = "reference")
+public class ReferenceEntity extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class StudentEntity extends PanacheEntityBase {
     @Column(name = "code")
     public Long code;
 
-    @Column(name = "last_name")
-    public String last_name;
+    @Column(name = "income")
+    public Float income;
 
 }

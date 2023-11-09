@@ -1,8 +1,8 @@
-create table if not exists students (
+create table if not exists reference (
        id bigint auto_increment,
        code bigint,
-       last_name varchar(255),
+       income real,
        primary key (id)
     );
 
-INSERT INTO students (code, last_name) VALUES (232412080, 'person');
+INSERT INTO reference (code, income) VALUES (232412080, 1.2);
