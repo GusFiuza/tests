@@ -13,34 +13,38 @@ public class ReferenceService {
     public List<Reference> get() {
         List<ReferenceEntity> listAll = ReferenceEntity.findAll().list();
         return listAll.stream().map(ie -> {
-            return new Reference(ie.code, ie.income);
+            return new Reference(ie.validityId, ie.positionId, ie.income);
         }).collect(Collectors.toList());
     }
 
-    public Reference getById(Long code) {
-        ReferenceEntity reference = ReferenceEntity.findById(code);
-        return new Reference(reference.code, reference.income);
+    public Reference getById(Long validityId, Long positionId) {
+        ReferenceEntity params = new ReferenceEntity();
+        params.validityId = validityId;
+        params.positionId = positionId;
+        ReferenceEntity reference = ReferenceEntity.findById(params);
+        return new Reference(reference.validityId, reference.positionId, reference.income);
     }
 
     @Transactional
     public ReferenceEntity create(Reference reference) {
         ReferenceEntity referenceEntity = new ReferenceEntity();
-        referenceEntity.code = reference.getCode();
+        referenceEntity.validityId = reference.getValidityId();
+        referenceEntity.positionId = reference.getPositionId();
         referenceEntity.income = reference.getIncome();
         referenceEntity.persist();
         return referenceEntity;
     }
 
-    @Transactional
-    public ReferenceEntity update(Reference Reference) {
-        ReferenceEntity entity = ReferenceEntity.findById(Reference.getCode());
-        entity.income = Reference.getIncome();
-        return entity;
-    }
+    // @Transactional
+    // public ReferenceEntity update(Reference Reference) {
+    //     ReferenceEntity entity = ReferenceEntity.findById(Reference.getValidityId(), Reference.getPositionId());
+    //     entity.income = Reference.getIncome();
+    //     return entity;
+    // }
 
-    @Transactional
-    public void delete(Long code) {
-        ReferenceEntity.deleteById(code);
-    }
+    // @Transactional
+    // public void delete(Long validityId, Long positionId) {
+    //     ReferenceEntity.deleteById(validityId, positionId);
+    // }
 
 }

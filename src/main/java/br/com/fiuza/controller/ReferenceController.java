@@ -31,9 +31,9 @@ public class ReferenceController {
     }
 
     @GET
-    @Path("{code}")
-    public Reference getById(@PathParam("code") Long code) {
-        return referenceService.getById(code);
+    @Path("{validityId}:{positionId}")
+    public Reference getById(@PathParam("validityId") Long validityId, @PathParam("positionId") Long positionId) {
+        return referenceService.getById(validityId, positionId);
     }
 
     @POST
@@ -42,16 +42,16 @@ public class ReferenceController {
         return referenceEntity;
     }
 
-    @PUT
-    public ReferenceEntity update(Reference reference) {
-        ReferenceEntity referenceEntity = referenceService.update(reference);
-        return referenceEntity;
-    }
+    // @PUT
+    // public ReferenceEntity update(Reference reference) {
+    //     ReferenceEntity referenceEntity = referenceService.update(reference);
+    //     return referenceEntity;
+    // }
 
-    @DELETE
-    @Path("{code}")
-    public void delete(@PathParam("code") Long code) {
-        referenceService.delete(code);
-    }
+    // @DELETE
+    // @Path("{code}")
+    // public void delete(@PathParam("validityId") Long validityId, @PathParam("positionId") Long positionId) {
+    //     referenceService.delete(validityId, positionId);
+    // }
 
 }

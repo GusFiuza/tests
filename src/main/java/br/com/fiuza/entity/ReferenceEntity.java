@@ -11,7 +11,10 @@ import jakarta.persistence.Table;
 public class ReferenceEntity extends PanacheEntityBase {
 
     @Id
-    public Long code;
+    public Long validityId;
+
+    @Id
+    public Long positionId;
 
     @Column(name = "income")
     public Float income;
